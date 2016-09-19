@@ -24,3 +24,5 @@ module Railsdokkeri
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+Railsdokkeri::Application.routes.default_scope = '/test'
