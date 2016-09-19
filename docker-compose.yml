@@ -17,5 +17,5 @@ services:
     depends_on:
       - db
     environment:  
-      RAILS_RELATIVE_URL_ROOT: '/test'
+      RAILS_RELATIVE_URL_ROOT: /test
     restart: always  
