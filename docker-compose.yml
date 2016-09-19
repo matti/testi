@@ -16,4 +16,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:  
+      RAILS_RELATIVE_URL_ROOT='/test'
     restart: always  
