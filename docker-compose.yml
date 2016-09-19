@@ -6,12 +6,14 @@ services:
     volumes: 
       - /opt/test_data:/opt/test_data
     image: postgres
+    restart: always
   web:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: rails s -e production -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
     ports:
       - "3000:3000"
     depends_on:
       - db
+    restart: always  
