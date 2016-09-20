@@ -8,8 +8,8 @@ services:
     image: postgres
     restart: always
   web:
-    build: .
-    command: rails s -e production -p 3000 -b '0.0.0.0'
+    build: . 
+    command: rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
     ports:

@@ -1,0 +1,6 @@
+version: '2'
+services:
+  web:
+    environment:
+      RAILS_ENV: production
+    restart: always 
