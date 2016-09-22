@@ -32,4 +32,4 @@ production:
   pool: 5
   username: postgres
   password:
-  host: db
+  host: testi-db

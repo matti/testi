@@ -1,0 +1,30 @@
+version: 2
+name: testi
+
+services:
+  web:
+    image: kontena-registry.localgyver.com/testi
+    build: .
+    command: rails s -p 3000 -b 0.0.0.0
+    depends_on:
+      - db
+    instances: 3
+    deploy:
+      strategy: ha
+      min_health: 0.8
+    environment:
+      - RAILS_ENV=production
+      - KONTENA_LB_VIRTUAL_HOSTS=testi.localgyver.com
+      - KONTENA_LB_INTERNAL_PORT=3000
+    external_links:
+      - localgyver-loadbalancer
+  db:
+    image: postgres:9.5
+    environment:
+      - PGDATA=/opt/test_data
+    volumes:
+      - /opt/test_data
+    stateful: true
+    deploy:
+      strategy: ha
+      instances: 1
